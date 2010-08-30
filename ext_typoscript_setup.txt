@@ -1,0 +1,154 @@
+plugin.tx_damdownloads_pi1 {
+	
+	# this must be set all the time
+	pid = 3
+	
+	# standard order by in list
+	orderBy = ORDER BY title
+	
+	# templatecollection
+	template = EXT:dam_downloads/pi1/template.tmpl
+	
+	# those are the file_types for which thumbnails will be generated
+	imgTypes = jpg,jpeg,gif,tif,png
+	
+	# if you want to display only files of certain file_types
+	restrict = 0
+	restrict.fileTypes = jpg,jpeg,gif,tif,png
+	
+	# search field list
+	searchFieldList = title,creator,description,abstract,search_content,publisher,copyright,instructions
+	
+	# download conf
+	download {
+		filename = test.zip
+		directoryName = test/
+	}
+	
+	icons_small {
+		noImg = <img src="typo3conf/ext/dam_downloads/img/icons_small/no_image.jpg" alt="noImg" title="noImg" width="65" height="65" border="0" />
+		exe = <img src="typo3conf/ext/dam_downloads/img/icons_small/exe.jpg" alt="exe" title="exe" width="65" height="65" border="0" />
+		swf = <img src="typo3conf/ext/dam_downloads/img/icons_small/swf.jpg" alt="swf" title="swf" width="65" height="65" border="0" />
+		pdf = <img src="typo3conf/ext/dam_downloads/img/icons_small/pdf.jpg" alt="pdf" title="pdf" width="65" height="65" border="0" />
+		zip = <img src="typo3conf/ext/dam_downloads/img/icons_small/zip.jpg" alt="zip" title="zip" width="65" height="65" border="0" />
+		doc = <img src="typo3conf/ext/dam_downloads/img/icons_small/doc.jpg" alt="doc" title="doc" width="65" height="65" border="0" />
+		xls = <img src="typo3conf/ext/dam_downloads/img/icons_small/xls.jpg" alt="xls" title="xls" width="65" height="65" border="0" />
+		ppt = <img src="typo3conf/ext/dam_downloads/img/icons_small/ppt.jpg" alt="ppt" title="ppt" width="65" height="65" border="0" />
+	}
+	
+	
+	icons_large {
+		noImg = <img src="typo3conf/ext/dam_downloads/img/icons_large/no_image.jpg" alt="noImg" title="noImg" width="135" height="135" border="0" />
+		exe = <img src="typo3conf/ext/dam_downloads/img/icons_large/exe.jpg" alt="exe" title="exe" width="135" height="135" border="0" />
+		swf = <img src="typo3conf/ext/dam_downloads/img/icons_large/swf.jpg" alt="swf" title="swf" width="135" height="135" border="0" />
+		pdf = <img src="typo3conf/ext/dam_downloads/img/icons_large/pdf.jpg" alt="pdf" title="pdf" width="135" height="135" border="0" />
+		zip = <img src="typo3conf/ext/dam_downloads/img/icons_large/zip.jpg" alt="zip" title="zip" width="135" height="135" border="0" />
+		doc = <img src="typo3conf/ext/dam_downloads/img/icons_large/doc.jpg" alt="doc" title="doc" width="135" height="135" border="0" />
+		xls = <img src="typo3conf/ext/dam_downloads/img/icons_large/xls.jpg" alt="xls" title="xls" width="135" height="135" border="0" />
+		ppt = <img src="typo3conf/ext/dam_downloads/img/icons_large/ppt.jpg" alt="ppt" title="ppt" width="135" height="135" border="0" />
+	}
+	
+	
+	searchView {
+		
+	}
+	
+	
+	browsebar {
+		start.btn = <img src="typo3conf/ext/dam_downloads/img/btn_end_left.gif" width="20" height="14" border="0" hspace="4" />
+		start.std.wrap = |
+		back.btn = <img src="typo3conf/ext/dam_downloads/img/btn_next_left.gif" width="15" height="14" border="0" hspace="4" />
+		back.std.wrap = |
+		page.btn =
+		page.stdAct.wrap = &nbsp;[ | ]&nbsp;
+		page.std.wrap = &nbsp; | &nbsp;
+		next.btn = <img src="typo3conf/ext/dam_downloads/img/btn_next_right.gif" width="15" height="14" border="0" hspace="4" />
+		next.std.wrap = |
+		end.btn = <img src="typo3conf/ext/dam_downloads/img/btn_end_right.gif" width="20" height="14" border="0" hspace="4" />
+		end.std.wrap = |
+		
+		first.wrap = <td width="20%"> | </td>
+		second.wrap = <td align="middle" width="60%"> | </td>
+		third.wrap = <td align="right" width="20%"> | </td>
+		whole.wrap = <table class="browsebar" cellpadding="0" cellspacing="0" border="0" width="588"><tr> | </tr></table>
+	}
+	
+	
+	listView {
+		results_at_a_time = 8
+		maxPages = 20
+		rewind = 1
+		orderBy = ORDER BY title
+		cue = 1
+		cols = 4
+		imageType = icons_small.
+		templatePrefix = LIST
+		
+		image {
+			file.width = 65
+			imageLinkWrap = 1
+			imageLinkWrap {
+				enable = 1
+				width = 600m
+				height = 600m
+				wrap = <a href="javascript: window.close();"> |Ê</a>
+				JSwindow = 1
+				JSwindow {
+					expand = 10,10	
+				}
+			}
+		}
+		
+		std {
+			title.wrap = <b> | </b>
+			description.wrap = |
+			abstract.wrap = |
+			search_content.wrap = |
+			language.wrap = |
+			copyright.wrap = |
+			file_name.wrap = |
+			file_path.wrap = |
+			file_size.wrap = |
+			file_size.bytes = 1
+			file_size.bytes.labels = ' | KB| MB| GB'
+			file_dl_name.wrap = |
+			creator.wrap = |
+			hpixels.wrap = |
+			vpixels.wrap = |
+			crdate.strftime = %e.%m.%Y
+			tstamp.strftime = %e.%m.%Y
+			file_ctime.strftime = %e.%m.%Y
+			category.wrap = | <br />
+			linkCategory = 1
+			pathCategory = 0
+			pathCategory.delimiter = /
+			categories.wrap = |
+		}
+	}
+	
+	
+	singleView {
+		std < plugin.tx_damdownloads_pi1.listView.std
+		imageType = icons_large.
+		templatePrefix = DETAIL
+		image {
+			file.width = 135
+		}
+	}
+	
+	
+	collectView < .listView
+	collectView {
+		results_at_a_time = 10
+		cols = 1
+		templatePrefix = COLLECT
+	}
+	
+	
+	_CSS_DEFAULT_STYLE (
+		.tx-damdownloads-pi1 .tx-damdownloads-pi1-collect {  }
+		.tx-damdownloads-pi1 .tx-damdownloads-pi1-search {  }
+		.tx-damdownloads-pi1 .tx-damdownloads-pi1-list {  }
+		.tx-damdownloads-pi1 .tx-damdownloads-pi1-detail {  }
+	)
+}

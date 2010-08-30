@@ -1,4 +1,5 @@
 2010-08-30  Andy Grunwald  <andreas.grunwald@wmdb.de>
 
+	* Task #9499: Update "ext_emconf.php"
 	* Task #9500: Create "ChangeLog"-File
 	* Initial import of extension dam_downloads to forge.typo3.org

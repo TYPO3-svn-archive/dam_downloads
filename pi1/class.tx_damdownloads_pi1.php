@@ -389,7 +389,9 @@ class tx_damdownloads_pi1 extends tslib_pibase {
 		$res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
 			$this->table_cat . '.title,' . $this->table_cat . '.uid',
 			$this->table_cat,
-			$where
+			$where,
+			'',
+			$this->table_cat . '.title'
 		);
 			
 		while($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {

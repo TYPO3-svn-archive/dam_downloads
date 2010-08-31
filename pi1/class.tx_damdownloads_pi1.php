@@ -378,13 +378,22 @@ class tx_damdownloads_pi1 extends tslib_pibase {
 	 * @return	[type]		...
 	 */
 	function getCategoryOptions()	{
-		$content = '<option value="">Kategorien</option>';
+		$content = '<option value="">' . $this->pi_getLL('getCategoryOptions_header') . '</option>';
 
-		$where = '1=1 '.$this->cObj->enableFields($this->table_cat);
-		$res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($this->table_cat.'.title,'.$this->table_cat.'.uid',$this->table_cat,$where);
+		$where = '1 = 1 ' . $this->cObj->enableFields($this->table_cat);
 
+		if($this->cObj->data['tx_damdownloads_category']){
+			$where .= ' AND ' . $this->table_cat . '.parent_id = ' . $this->cObj->data['tx_damdownloads_category'];
+		}
+		
+		$res = $GLOBALS['TYPO3_DB']->exec_SELECTquery(
+			$this->table_cat . '.title,' . $this->table_cat . '.uid',
+			$this->table_cat,
+			$where
+		);
+			
 		while($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res)) {
-			$content.= '<option value="'.$row['uid'].'"'.($this->piVars['cat']==$row['uid'] ? ' selected' : '').'>'.$row['title'].'</option>';
+			$content .= '<option value="' . $row['uid'] . '"' . ($this->piVars['cat'] == $row['uid'] ? ' selected="selected"' : '') . '>' . $row['title'] . '</option>';
 		}
 
 		return $content;

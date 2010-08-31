@@ -16,6 +16,7 @@ $LOCAL_LANG = Array (
 		'pi_list_browseresults_next' => 'Next >',
 		'browseresults' => 'Files %s to %s out of %s',
 		'noEntries' => 'No files found.',
+		'getCategoryOptions_header' => 'Kategorien',
 	),
 	'dk' => Array (
 	),

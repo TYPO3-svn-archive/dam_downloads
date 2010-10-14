@@ -91,7 +91,7 @@ plugin.tx_damdownloads_pi1 {
 				enable = 1
 				width = 600m
 				height = 600m
-				wrap = <a href="javascript: window.close();"> |Ê</a>
+				wrap = <a href="javascript: window.close();"> | </a>
 				JSwindow = 1
 				JSwindow {
 					expand = 10,10	
